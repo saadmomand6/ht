@@ -31,7 +31,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    //final loginauthviewmodel = Provider.of<AuthViewModel>(context);
     return WillPopScope(
       child: Scaffold(
         body: Container(
@@ -147,12 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   const Color.fromARGB(255, 230, 9, 9),
                                   Colors.white);
                             } else {
-                              // Map<String, dynamic> data = {
-                              //   "email": _cemail.text.toString(),
-                              //   "password": _cpassword.text.toString(),
-                              //   "deviceId": deviceid.toString()
-                              // };
-                             // loginauthviewmodel.loginApiModel(data, context);
+                             
                               Navigator.push(
                           context,
                           MaterialPageRoute(

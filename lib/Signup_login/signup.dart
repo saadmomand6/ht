@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import '../component/inputfield.dart';
 import '../component/mainbutton.dart';
 import '../component/toast.dart';
 import '../component/validations.dart';
+import '../payment/subscription_plan.dart';
 import 'loginscreen.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -193,14 +193,11 @@ class _SignupScreenState extends State<SignupScreen> {
                                 const Color.fromARGB(255, 230, 9, 9),
                                 Colors.white);
                           } else {
-                            Map<String, dynamic> data = {
-                              "name": _signupname.text,
-                              "phone": _signupphone.text,
-                              "email": _signupemail.text,
-                              "password": _signuppassword.text,
-                              "deviceId": widget.deviceid.toString(),
-                            };
-                            //signupauthviewmodel.signupApiModel(data, context);
+                            Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => const SubscriptionPlanScreen(
+                                  )));
                           }
                         },
                       ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:ht/Signup_login/loginscreen.dart';
 import '../component/inputfield.dart';
 import '../component/mainbutton.dart';
 import '../component/toast.dart';
@@ -18,7 +18,6 @@ class _ForgetPasswordState extends State<ForgetPassword> {
 
   @override
   Widget build(BuildContext context) {
-    //final forgotauthviewmodel = Provider.of<AuthViewModel>(context);
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -26,7 +25,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
           "Forgot Password",
           style: GoogleFonts.inter(
             textStyle: TextStyle(
-                color: Colors.white,
+                color: Colors.yellow,
                 fontStyle: FontStyle.normal,
                 fontSize: MediaQuery.of(context).size.width * 0.065,
                 fontWeight: FontWeight.w600),
@@ -38,7 +37,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
       body: SingleChildScrollView(
         child: Container(
           decoration: const BoxDecoration(
-            color: Colors.white
+            color: Colors.black
           ),
           child: Padding(
               padding: const EdgeInsets.only(
@@ -60,7 +59,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                           ),
                           child: const Padding(
                             padding: EdgeInsets.all(35.0),
-                            child: Icon(Icons.lock, color: Colors.yellow,)
+                            child: Icon(Icons.lock,size: 60, color: Colors.yellow,)
                           )),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.035,
@@ -70,6 +69,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                         child: Text(
                           "Please enter your email address to receive a verification code.",
                           style: GoogleFonts.inter(
+                            color: Colors.white,
                             textStyle: Theme.of(context).textTheme.bodySmall,
                           ),
                           textAlign: TextAlign.center,
@@ -82,6 +82,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                         alignment: Alignment.centerLeft,
                         child: Text("Email Address",
                             style: GoogleFonts.inter(
+                              color: Colors.white,
                               textStyle: Theme.of(context).textTheme.labelLarge,
                             )),
                       ),
@@ -109,10 +110,15 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                                 const Color.fromARGB(255, 230, 9, 9),
                                 Colors.white);
                           } else {
-                            Map<String, dynamic> data = {
-                              "email": _cforgotemail.text,
-                            };
-                            //forgotauthviewmodel.forgotPasswordApiModel(_cforgotemail.text, data, context);
+                            alertDialog(
+                                "Email sent successfully",
+                                const Color.fromARGB(255, 9, 230, 72),
+                                Colors.white);
+                            Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => const LoginScreen(
+                                  )));
                           }
                         },
                       ),
