@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../Signup_login/loginscreen.dart';
 import '../component/mainbutton.dart';
 
 class PaymentSuccessfulScreen extends StatefulWidget {
@@ -42,6 +43,11 @@ class _PaymentSuccessfulScreenState extends State<PaymentSuccessfulScreen> {
                   ),
                   Mainbutton(buttontext: "Continue", 
                   onPressed: (){
+                     Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => const LoginScreen(
+                                  )));
                   })
                 ],
               ),
